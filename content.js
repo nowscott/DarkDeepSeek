@@ -29,5 +29,9 @@ function applyTheme(theme) {
   const isDark = theme === 'dark' || 
     (theme === 'system' && systemThemeMedia.matches);
 
-  document.documentElement.classList.toggle('dark-theme', isDark);
+  if (isDark) {
+    document.body.setAttribute('data-ds-dark-theme', 'dark');
+  } else {
+    document.body.removeAttribute('data-ds-dark-theme');
+  }
 }

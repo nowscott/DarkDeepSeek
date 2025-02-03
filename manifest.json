@@ -26,8 +26,7 @@
   "content_scripts": [
     {
       "matches": ["https://chat.deepseek.com/*"],
-      "js": ["content.js"],
-      "css": ["styles/dark-theme.css"]
+      "js": ["content.js"]
     }
   ]
 }
