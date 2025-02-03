@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>DarkDeepSeek</title>
+  <style>
+    body {
+      width: 200px;
+      padding: 10px;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    .theme-option {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .theme-option:hover {
+      background-color: #f0f0f0;
+    }
+    .theme-option input[type="radio"] {
+      margin-right: 8px;
+    }
+    h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h3>主题设置</h3>
+  <div class="theme-option">
+    <input type="radio" name="theme" value="light" id="light">
+    <label for="light">🌞 日间模式</label>
+  </div>
+  <div class="theme-option">
+    <input type="radio" name="theme" value="dark" id="dark">
+    <label for="dark">🌙 夜间模式</label>
+  </div>
+  <div class="theme-option">
+    <input type="radio" name="theme" value="system" id="system">
+    <label for="system">🔄 跟随系统</label>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

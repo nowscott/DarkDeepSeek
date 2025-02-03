@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "DarkDeepSeek",
+  "version": "1.0.0",
+  "description": "为 chat.deepseek.com 提供暗色主题支持",
+  "permissions": [
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://chat.deepseek.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.ico",
+      "48": "icons/icon48.ico",
+      "128": "icons/icon128.ico"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.ico",
+    "48": "icons/icon48.ico",
+    "128": "icons/icon128.ico"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chat.deepseek.com/*"],
+      "js": ["content.js"],
+      "css": ["styles/dark-theme.css"]
+    }
+  ]
+}
