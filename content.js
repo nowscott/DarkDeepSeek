@@ -1,5 +1,5 @@
 // 监听来自popup的主题变更消息
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   if (message.type === 'THEME_CHANGED') {
     applyTheme(message.theme);
     // 发送响应以确认消息已收到
@@ -28,33 +28,9 @@ systemThemeMedia.addEventListener('change', (e) => {
 function applyTheme(theme) {
   const isDark = theme === 'dark' || 
     (theme === 'system' && systemThemeMedia.matches);
-
   if (isDark) {
     document.body.setAttribute('data-ds-dark-theme', 'dark');
   } else {
     document.body.removeAttribute('data-ds-dark-theme');
   }
-}
-
-// 监听聊天框的DOM变化
-const chatObserver = new MutationObserver(() => {
-  chrome.storage.sync.get(['theme'], (result) => {
-    const theme = result.theme || 'system';
-    const isDark = theme === 'dark' || 
-      (theme === 'system' && systemThemeMedia.matches);
-    
-    if (isDark) {
-      const chatInput = document.getElementById('chat-input');
-      if (chatInput) {
-        chatInput.style.color = '#f8faff';
-      }
-    }
-  });
-});
-
-// 开始观察聊天框的变化
-const observerConfig = { childList: true, subtree: true };
-const chatContainer = document.getElementById('chat-input');
-if (chatContainer) {
-  chatObserver.observe(chatContainer, observerConfig);
 }

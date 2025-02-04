@@ -1,4 +1,5 @@
 /* 暗色主题下的聊天输入框样式 */
 body[data-ds-dark-theme='dark'] #chat-input {
   color: #f8faff;
+  caret-color:#f8faff;
 }
