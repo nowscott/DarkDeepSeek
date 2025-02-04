@@ -31,18 +31,8 @@ function applyTheme(theme) {
 
   if (isDark) {
     document.body.setAttribute('data-ds-dark-theme', 'dark');
-    // 设置聊天输入框的文字颜色
-    const chatInput = document.getElementById('chat-input');
-    if (chatInput) {
-      chatInput.style.color = '#f8faff';
-    }
   } else {
     document.body.removeAttribute('data-ds-dark-theme');
-    // 恢复聊天输入框的默认文字颜色
-    const chatInput = document.getElementById('chat-input');
-    if (chatInput) {
-      chatInput.style.color = '';
-    }
   }
 }
 
