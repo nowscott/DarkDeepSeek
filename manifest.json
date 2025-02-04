@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "DarkDeepSeek",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "description": "为 chat.deepseek.com 提供暗色主题支持",
   "permissions": [
     "storage",
