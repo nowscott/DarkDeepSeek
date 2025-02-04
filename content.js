@@ -31,7 +31,40 @@ function applyTheme(theme) {
 
   if (isDark) {
     document.body.setAttribute('data-ds-dark-theme', 'dark');
+    // 设置聊天输入框的文字颜色
+    const chatInput = document.getElementById('chat-input');
+    if (chatInput) {
+      chatInput.style.color = '#f8faff';
+    }
   } else {
     document.body.removeAttribute('data-ds-dark-theme');
+    // 恢复聊天输入框的默认文字颜色
+    const chatInput = document.getElementById('chat-input');
+    if (chatInput) {
+      chatInput.style.color = '';
+    }
   }
+}
+
+// 监听聊天框的DOM变化
+const chatObserver = new MutationObserver(() => {
+  chrome.storage.sync.get(['theme'], (result) => {
+    const theme = result.theme || 'system';
+    const isDark = theme === 'dark' || 
+      (theme === 'system' && systemThemeMedia.matches);
+    
+    if (isDark) {
+      const chatInput = document.getElementById('chat-input');
+      if (chatInput) {
+        chatInput.style.color = '#f8faff';
+      }
+    }
+  });
+});
+
+// 开始观察聊天框的变化
+const observerConfig = { childList: true, subtree: true };
+const chatContainer = document.getElementById('chat-input');
+if (chatContainer) {
+  chatObserver.observe(chatContainer, observerConfig);
 }
